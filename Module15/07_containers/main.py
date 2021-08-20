@@ -1,22 +1,18 @@
-def input_control(n):
-    res = []
-    count = 0
-    while count != n:
-        cont = int(input('Введите вес контейнера: '))
-        if cont > 200 or cont != int(cont):
-            print('Неправильный ввод, попробуйте ещё раз сначала')
-            res = []
-            count = 0
-        else:
-            res.append(cont)
-    return res
-
-
 n = int(input('Кол-во контейнеров: '))
 left_border = []
 right_border = []
+containers = []
 
-containers = input_control(n)
+while len(containers) != n:
+    for _ in range(n):
+        if len(containers) == n:
+            break
+        cont = int(input('Введите вес контейнера: '))
+        if cont > 200 or cont != int(cont):
+            print('Неверный ввод - попробуйте сначала')
+            containers = []
+        else:
+            containers.append(cont)
 
 new_cont = int(input('\nВведите вес нового контейнера: '))
 
