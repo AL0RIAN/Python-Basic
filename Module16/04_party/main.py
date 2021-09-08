@@ -1,5 +1,5 @@
 def count_of_guests(list_of_guests):
-    if len(list_of_guests) < 6:
+    if len(list_of_guests) < 6:  # TODO аналогично предыдущему
         return True
     else:
         return False

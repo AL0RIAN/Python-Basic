@@ -6,7 +6,7 @@ name = input('Название детали: ')
 count = 0
 cost = 0
 
-for i in shop:
+for i in shop:  # TODO Используйте распаковку списка: for name, price in shop:
     if i[0] == name:
         count += 1
         cost += i[1]
