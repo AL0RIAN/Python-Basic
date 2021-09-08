@@ -2,10 +2,7 @@ def palindrom(num_list):
     reverse = []
     for i_num in range(len(num_list) - 1, -1, -1):
         reverse.append(num_list[i_num])
-    if num_list == reverse:  # TODO просто укажите сравнение в return, это лаконично и более pythonic way
-        return True
-    else:
-        return False
+        return True if num_list == reverse else False
 
 
 n = int(input('Кол-во чисел: '))
