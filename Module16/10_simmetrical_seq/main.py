@@ -2,7 +2,8 @@ def palindrom(num_list):
     reverse = []
     for i_num in range(len(num_list) - 1, -1, -1):
         reverse.append(num_list[i_num])
-        return True if num_list == reverse else False
+        # return True if num_list == reverse else False
+        return num_list == reverse  # TODO возвращаем результат сравнения
 
 
 n = int(input('Кол-во чисел: '))
