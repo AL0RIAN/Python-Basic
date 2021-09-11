@@ -4,9 +4,10 @@ def list_to_text(lst):
     print()
 
 
-text = list(input('Введите строку: '))
+text = (input('Введите строку: '))
 left = text.index('h')
-right = len(text[left:]) - 1  # TODO не верный способ, надо найти позицию второй буквы h
+right = text.rindex('h')
+text = list(text)
 
 print('Было:', end=' '), list_to_text(text)
 text[left + 1:right] = text[left + 1:right][::-1]
