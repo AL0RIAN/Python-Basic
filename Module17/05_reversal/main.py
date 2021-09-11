@@ -6,7 +6,7 @@ def list_to_text(lst):
 
 text = list(input('Введите строку: '))
 left = text.index('h')
-right = len(text[left:]) - 1
+right = len(text[left:]) - 1  # TODO не верный способ, надо найти позицию второй буквы h
 
 print('Было:', end=' '), list_to_text(text)
 text[left + 1:right] = text[left + 1:right][::-1]
