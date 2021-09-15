@@ -31,3 +31,4 @@ for word in first.split(' '):
     second += new_word + ' '
 
 print('Расшифровка:', second)
+# TODO осталось заменить ( на одинарную кавычку, а + на двойную
