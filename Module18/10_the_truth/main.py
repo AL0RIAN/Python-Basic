@@ -26,9 +26,9 @@ for word in first.split(' '):
         new_word += (word[index - replace_index % len(word)])
     if new_word.endswith('/'):
         replace_index += 1
-        new_word = new_word[:-1]
-        new_word += '\n'
     second += new_word + ' '
 
-print('Расшифровка:', second)
-# TODO осталось заменить ( на одинарную кавычку, а + на двойную
+second = second.replace("(", "'")
+second = second.replace('+', '"')
+second = second.replace('/', '\n')
+print('', second)
