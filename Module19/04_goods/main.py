@@ -24,3 +24,13 @@ store = {
     ],
 }
 
+quantity = 0
+price = 0
+for name in goods:
+    for key in store[goods[name]]:
+        quantity += key['quantity']
+        price += key['quantity'] * key['price']
+    print('{0} - {1} шт, стоимость {2} руб'.format(name, quantity, price))
+    price = 0
+    quantity = 0
+
