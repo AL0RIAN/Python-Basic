@@ -1,3 +1,9 @@
+def vanya_revenge(dict):
+    lst = [interest for key, item in dict.items() for interest in item['interests']]
+    surnames = [surname for key, item in dict.items() for surname in item['surname']]
+    return lst, len(surnames)
+
+
 students = {
     1: {
         'name': 'Bob',
@@ -19,26 +25,5 @@ students = {
     }
 }
 
-
-def f(dict):
-    lst = []
-    string = ''
-    for i in dict:
-        lst += (dict[i]['interests'])
-        string += dict[i]['surname']
-    cnt = 0
-    for s in string:
-        cnt += 1
-    return lst, cnt
-
-
-pairs = []
-for i in students:
-    pairs += (i, students[i]['age'])
-
-
-my_lst = f(students)[0]
-l = f(students)[1]
-print(my_lst, l)
-
-# TODO исправить код
+result = vanya_revenge(students)
+print("Result: {0}, {1}".format(result[0], result[1]))
