@@ -8,6 +8,6 @@ def func(tpl, elem):
         return ()
 
 
-numbers = (1, 1, 0, 1, 1, 1, 1, 0, 1, 1)
+numbers = (1, 1, 0, 1, 2, 3, 4, 0, 1, 1)
 print(func(numbers, 0))
 

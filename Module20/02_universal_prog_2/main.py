@@ -14,3 +14,6 @@ def universal_program(iter_item):
 
 lst = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 print(universal_program(lst))
+for i in range(15):
+    print(i, is_prime(i))
+# TODO Число 1 не считается простым, надо исправить функцию is_prime

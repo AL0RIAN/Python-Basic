@@ -8,6 +8,6 @@ def tuple_sort(tuple_):
     return tuple(sorted(lst))
 
 
-original = (5, 6, 7, 2, 2, 8, 9, 10, 1)
+original = (5, .6, 7, 2, 2, 8, 9, 10, 1)
 print(tuple_sort(original))
 
