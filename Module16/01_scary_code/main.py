@@ -1,24 +1,15 @@
-a = [1, 5, 3]
-b = [1, 5, 1, 5]
-c = [1, 3, 1, 5, 3, 3]
-for i in b:
-    a.append(i)
-t = 0
-for i in a:
-    if i == 5:
-        t += 1
-print(t)
-d = []
-for i in a:
-    if i != 5:
-        d.append(i)
-for i in c:
-    d.append(i)
-t = 0
-for i in d:
-    if i == 3:
-        t += 1
-print(t)
-print(d)
+main = [1, 5, 3]
+first = [1, 5, 1, 5]
+second = [1, 3, 1, 5, 3, 3]
 
-# TODO переписать программу
+main.extend(first)
+print('Кол-во пятерок в основном списке, слитом с первым побочным:', main.count(5))
+
+for _ in range(main.count(5)):  # TODO дублируете код определения числа элементов со значением 5 - присвойте результат
+                                #  переменной и используйте её там где это требуется
+    main.remove(5)
+
+main.extend(second)
+print('Кол-во троек в основном списке, слитом со вторым побочным:', main.count(3))
+print('Итоговый список:', main)
+
