@@ -2,6 +2,8 @@ import math
 
 
 def is_prime(item_index):
+    if item_index <= 1:
+        return False
     for number in range(2, int(math.sqrt(item_index) + 1)):
         if item_index % number == 0:
             return False
@@ -16,4 +18,3 @@ lst = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 print(universal_program(lst))
 for i in range(15):
     print(i, is_prime(i))
-# TODO Число 1 не считается простым, надо исправить функцию is_prime
