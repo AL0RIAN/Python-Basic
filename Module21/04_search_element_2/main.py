@@ -1,3 +1,15 @@
+def find_key(site_dict, key, deep_level=0):
+    if key in site_dict:
+        return site_dict[key]
+    for i in site_dict.values():
+        if isinstance(i, dict):
+            result = find_key(site_dict[i], key, 0)
+            if result:
+                break
+    else:
+        return None
+
+
 site = {
     'html': {
         'head': {
@@ -10,3 +22,10 @@ site = {
         }
     }
 }
+
+key = input("Введите ключ: ")
+# deep = input("Введите глубину")
+
+print(find_key(site, key, 0))
+
+# TODO Непонятен момент касательно "глубины"
