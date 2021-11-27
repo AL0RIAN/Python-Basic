@@ -6,4 +6,4 @@ def calculating_math_func(data):
     result = result ** 10
     return result
 
-# TODO оптимизировать функцию
+# TODO Нужна подсказка: разве факториал не считается один раз итак?
