@@ -3,7 +3,7 @@ def find_key(site_dict, key, deep_level=0):
         return site_dict[key]
     for i in site_dict.values():
         if isinstance(i, dict):
-            result = find_key(site_dict[i], key, 0)
+            result = find_key(site_dict[i], key, 0)  # TODO видимо просто i вместо site_dict[i]
             if result:
                 break
     else:
@@ -28,4 +28,6 @@ key = input("Введите ключ: ")
 
 print(find_key(site, key, 0))
 
-# TODO Непонятен момент касательно "глубины"
+#  Непонятен момент касательно "глубины"
+# TODO добавьте 4й параметр в функцию для ограничения глубины поиска (числа рекурсивных вызов) и как функция превысит
+#  его - она должна завершаться
