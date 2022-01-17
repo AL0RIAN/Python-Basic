@@ -10,6 +10,6 @@ def pro_sum(data, suma=0):
 
 
 print('pro_sum([[1, 2, [3]], [1], 3])')
-print('Ответ: ', pro_sum([[1, 2, [3]], [1], 3]))
+print('Ответ:', pro_sum([[1, 2, [3]], [1], 3]))
 print('pro_sum((1, 2, 3, 4, 5)')
-print('Ответ: ', pro_sum((1, 2, 3, 4, 5)))
+print('Ответ:', pro_sum((1, 2, 3, 4, 5)))
