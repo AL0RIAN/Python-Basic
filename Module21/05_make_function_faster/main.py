@@ -8,7 +8,7 @@ def calculating_math_func(data, cache={}):
         cache[data] = result
     result /= data ** 3
     result = result ** 10
-    return result
+    return result   # TODO Определение функции отделяется от остального кода двумя пустыми строками
 
 print(calculating_math_func(5))
 print(calculating_math_func(5))
