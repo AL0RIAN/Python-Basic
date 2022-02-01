@@ -30,6 +30,8 @@ for sym in file.read():
 
 file.close()
 
+print(rarest_letter)
+
 print("Буквы:", letters)
 print("Слова:", words)
 print("Строки:", lines)
