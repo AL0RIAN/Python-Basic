@@ -33,6 +33,12 @@ file.close()
 print("Буквы:", letters)
 print("Слова:", words)
 print("Строки:", lines)
-print("Самая редкая буква в тексте:", min(rarest_letter))  # TODO вывели "миниммальную" букву (по её коду), а не самую
-                                                           #  редкую. Надо проитерировать по словарю и найти запись с
-                                                           #  минимальным значением
+print("Самая редкая буква в тексте:", end=' ')
+
+min_value = max(rarest_letter.values())
+rarest_key = 0
+for letter in rarest_letter:
+    if rarest_letter[letter] < min_value:
+        rarest_key = letter
+        min_value = rarest_letter[letter]
+print(rarest_key)
