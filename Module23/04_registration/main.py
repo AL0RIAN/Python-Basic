@@ -1,9 +1,11 @@
 def correct(data):
-    try:
+    try:  # TODO в этой функции только выбрасываем исключения, а ловить исключения и обрабатывать их надо в главном
+          #  цикле программы
         error = ''
         if len(data) != 3:
             error += 'IndexError: НЕ присутствуют все три поля: '
-            raise IndexError
+            # TODO поясняющие сообщения указывайте при выбрасывнаии исключения в круглых скобках
+            raise IndexError('НЕ присутствуют все три поля:')  # TODO вот так, а класс исключения можно получить потом
         elif not data[0].isalpha():
             error += 'NameError: Поле имени содержит НЕ только буквы'
             raise NameError
@@ -14,6 +16,10 @@ def correct(data):
             error += 'ValueError: Поле возраст НЕ является числом от 10 до 99'
             raise ValueError
     except BaseException:
+        # TODO 1) используйте более конкретный класс исключения, тут (на самом деле ниже, в главном цикле программы)
+        #  надо указать кортеж исключений которые
+        #  выбрасываются. В любом случае, базовый класс всех простых исключений это Exception, а BaseException это
+        #  "внутренности" реализации и обычно не используется
         return error
     return ''
 
@@ -26,3 +32,6 @@ with open('registrations.txt', 'r', encoding='utf-8') as file:
                     good.write(f'{"".join(line)}')
                 else:
                     bad.write(f'{"".join(line)} --- {correct(line)}')
+            # TODO обработка во всех исключений идентична, поэтому укажите кортеж классов, а сообщение
+            #  записывайте в лог так: except (NameError, ...) as exc:
+            #  error_message = f'{line.rstrip()} - {exc.__class__.__name__} - {exc}\n'
