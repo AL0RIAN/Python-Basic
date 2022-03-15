@@ -13,7 +13,7 @@ class Water:
         elif type(other) == Earth:
             return Dirt()
         else:
-            return None
+            return Abyss().chaos_of_abyss[randint(0, len(Abyss().chaos_of_abyss) - 1)]
 
 
 class Air:
@@ -26,7 +26,7 @@ class Air:
         elif type(other) == Fire:
             return Lightning()
         else:
-            return None
+            return Abyss().chaos_of_abyss[randint(0, len(Abyss().chaos_of_abyss) - 1)]
 
 
 class Fire:
@@ -41,7 +41,7 @@ class Fire:
         elif type(other) == Earth:
             return Lava()
         else:
-            return None
+            return Abyss().chaos_of_abyss[randint(0, len(Abyss().chaos_of_abyss) - 1)]
 
 
 class Earth:
@@ -56,7 +56,7 @@ class Earth:
         elif type(other) == Fire:
             return Lava()
         else:
-            return None
+            return Abyss().chaos_of_abyss[randint(0, len(Abyss().chaos_of_abyss) - 1)]
 
 
 class Storm:
