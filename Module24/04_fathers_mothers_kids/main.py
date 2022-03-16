@@ -2,35 +2,31 @@ from random import randint
 
 
 class Parents:
-    def __init__(self, name, age, count):
+    def __init__(self, name, age, children):
         self.name = name
         self.age = age
-        self.children = [Child(input(f'{child + 1} ребенок - введите имя и возраст: ').split()) for child in
-                         range(count)]  # TODO 1) список объектов детей формируйте в основном коде
-                                        #  программы, это даёт гораздо больше возможностей по использованию класса
-                                        #  2) до присваивания списка детей атрибуту, надо проверить ограничение по
-                                        #  возрасту указанное в задании
+        self.children = children
 
     def get_info(self):
         print(f'Имя: {self.name}\nВозраст: {self.age}')
         print('Дети: ', end='')
-        for child in self.children:
-            print(child.name, end=', ')
-        print('\n')
+        for kid in self.children:
+            print(kid.name, end=', ')
+        print()
 
     def calm_down(self):
-        for child in self.children:
-            if not child.calm:
-                child.calm = True
-                print(f'{self.name} успокаивает {child.name}')
-        print('\n')
+        for kid in self.children:
+            if not kid.calm:
+                kid.calm = True
+                print(f'{self.name} успокаивает {kid.name}')
+        print()
 
     def feeding(self):
-        for child in self.children:
-            if child.hunger:
-                child.hunger = False
-                print(f'{self.name} кормит {child.name}')
-        print('\n')
+        for kid in self.children:
+            if kid.hunger:
+                kid.hunger = False
+                print(f'{self.name} кормит {kid.name}')
+        print()
 
 
 class Child:
@@ -51,25 +47,36 @@ class Child:
             print(f'{self.name} плачет!')
         else:
             print(f'{self.name} спокоен/спокойна')
-        print('\n')
+        print()
 
     def hunger_on(self):
         if self.hunger:
             self.hunger = False
-        print('\n')
+        print()
 
     def bad_mood(self):
         if self.calm:
             self.calm = False
-        print('\n')
+        print()
 
 
 if __name__ == "__main__":
+    children_list = []
     par_name = input('Введите имя родителя: ')
     par_age = int(input('Введите возраст родителя: '))
     count_of_child = int(input('Введите кол-во детей: '))
-    parent_1 = Parents(par_name, par_age, count_of_child)
-    print('\n')
+    for child in range(count_of_child):
+        data = input(f'{child + 1} ребенок - введите имя и возраст: ').split()
+        while True:
+            if abs(int(data[1]) - par_age) < 16:
+                print(
+                    f'Ребенок младше родителя на {abs(int(data[1]) - par_age)}. Разница должна быть равна минимум 16!')
+                data = input(f'{child + 1} ребенок - введите имя и возраст: ').split()
+            else:
+                children_list.append(Child(data))
+                break
+    parent_1 = Parents(par_name, par_age, children_list)
+    print()
     while True:
         print('1 - информация о родителе\n'
               '2 - успокоить всех детей\n'
@@ -78,7 +85,7 @@ if __name__ == "__main__":
               '5 - ребенок голоден\n'
               '6 - информация о детях')
         choice = int(input('Выбор: '))
-        print('\n')
+        print()
         if choice == 1:
             parent_1.get_info()
         if choice == 2:
@@ -86,7 +93,7 @@ if __name__ == "__main__":
         if choice == 3:
             parent_1.feeding()
         if choice == 4:
-            child = parent_1.children[randint(0, len(parent_1.children))]
+            child = parent_1.children[randint(0, len(parent_1.children) - 1)]
             child.bad_mood()
             print(f'{child.name} плачет!\n')
         if choice == 5:
@@ -96,8 +103,6 @@ if __name__ == "__main__":
         if choice == 6:
             for child in parent_1.children:
                 child.get_condition()
-            else:
-                print(f'У {parent_1.name} нет детей!')
         if choice == 0:
             break
     print('Конец программы')
