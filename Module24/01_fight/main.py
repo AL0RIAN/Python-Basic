@@ -7,22 +7,23 @@ class Unit:
     def __init__(self, name='Воин'):
         self.name = name
 
-    def get_damage(self):
-        self.health -= 20
-    # TODO добавьте метод "удар"/"атака"|"бой" принимающий через параметр объект врага и уменьшающий значение его
-    #  атрибута health
+    def fight(self, other):
+        print(f'{self.name} атакует по {other.name} и наносит 20 единиц повреждений')
+        other.health -= 20
+        print(f'У {other.name} осталось {other.health} очков здоровья\n')
 
 
-unit_1 = Unit('Герберт')
-unit_2 = Unit('Роберт')
-while unit_1.health != 0 and unit_2.health != 0:
-    initiative = randint(1, 2)
-    print(f'Бросок 1к2: {initiative}')
-    if initiative == 1:
-        print(f'{unit_1.name} атакует по {unit_2.name} и наносит 20 единиц повреждений')
-        unit_2.get_damage()
-        print(f'У {unit_2.name} осталось {unit_2.health} очков здоровья\n')
+if __name__ == '__main__':
+    unit_1 = Unit('Герберт')
+    unit_2 = Unit('Роберт')
+    while unit_1.health != 0 and unit_2.health != 0:
+        initiative = randint(1, 2)
+        print(f'Бросок 1к2: {initiative}')
+        if initiative == 1:
+            unit_1.fight(unit_2)
+        else:
+            unit_2.fight(unit_1)
+    if unit_1.health != 0:
+        print(f'{unit_1.name} победил!')
     else:
-        print(f'{unit_2.name} атакует по {unit_1.name} и наносит 20 единиц повреждений')
-        unit_1.get_damage()
-        print(f'У {unit_1.name} осталось {unit_1.health} очков здоровья\n')
+        print(f'{unit_2.name} победил!')
