@@ -14,7 +14,7 @@ class Human:
         self.sweet_home = sweet_home
         self.name = name
 
-    def brain(self):
+    def brain(self):  # TODO предлагаю назвать act()
         dice = randint(1, 6)
         print(f'Бросок кубика для {self.name}: {dice}')
         if self.satiety < 20:
