@@ -6,7 +6,10 @@ class Parents:
         self.name = name
         self.age = age
         self.children = [Child(input(f'{child + 1} ребенок - введите имя и возраст: ').split()) for child in
-                         range(count)]
+                         range(count)]  # TODO 1) список объектов детей формируйте в основном коде
+                                        #  программы, это даёт гораздо больше возможностей по использованию класса
+                                        #  2) до присваивания списка детей атрибуту, надо проверить ограничение по
+                                        #  возрасту указанное в задании
 
     def get_info(self):
         print(f'Имя: {self.name}\nВозраст: {self.age}')
