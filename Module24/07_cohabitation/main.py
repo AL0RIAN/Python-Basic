@@ -14,7 +14,7 @@ class Human:
         self.sweet_home = sweet_home
         self.name = name
 
-    def brain(self):  # TODO предлагаю назвать act()
+    def act(self):
         dice = randint(1, 6)
         print(f'Бросок кубика для {self.name}: {dice}')
         if self.satiety < 20:
@@ -65,13 +65,13 @@ if __name__ == '__main__':
     while day < 366:
         if human_1.satiety >= 0:
             print(f'Сытость {human_1.name}: {human_1.satiety}')
-            human_1.brain()
+            human_1.act()
         else:
             print(f'{human_1.name} мертв(а)\n')
             human_1.dead = True
         if human_2.satiety >= 0:
             print(f'Сытость {human_2.name}: {human_2.satiety}')
-            human_2.brain()
+            human_2.act()
         else:
             print(f'{human_2.name} мертв(а)\n')
             human_2.dead = True
