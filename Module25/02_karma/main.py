@@ -1,1 +1,42 @@
-# TODO здесь писать код
+from random import randint
+
+
+class KillError(Exception):
+    pass
+
+
+class DrunkError(Exception):
+    pass
+
+
+class CarCrashError(Exception):
+    pass
+
+
+class GluttonyError(Exception):
+    pass
+
+
+class DepressionError(Exception):
+    pass
+
+
+class Human:
+    karma = 0
+    sins = [KillError('Убийство - это ужасно!'), DrunkError('Не губи свою жизнь!'),
+            CarCrashError('Я уже говорил о пьянстве?'), GluttonyError('Оставь место для святого духа!'),
+            DepressionError('Не унывай. И не пей!')]
+
+    def one_day(self):
+        chance = randint(1, 10)
+        if chance == 1:
+            raise self.sins[randint(0, len(self.sins) - 1)]
+        else:
+            self.karma += randint(1, 7)
+            print('Карма:', human.karma)
+
+
+if __name__ == '__main__':
+    human = Human()
+    while human.karma < 500:
+        human.one_day()
