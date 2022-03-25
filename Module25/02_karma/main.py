@@ -39,4 +39,6 @@ class Human:
 if __name__ == '__main__':
     human = Human()
     while human.karma < 500:
+        # TODO возьмите вызов метода one_day "под защиту" конструкции try..except, логгируйте исключения аналогично
+        #  решению задачи 4 в модуле 23
         human.one_day()

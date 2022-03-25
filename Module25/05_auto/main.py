@@ -8,8 +8,13 @@ class Auto:
         return f'X: {self.x}, Y: {self.y}, ANGLE: {self.angle}'
 
     def move(self):
-        count = int(input('Какое расстояние едем: '))
-        if 0 < self.angle < 90:
+        # TODO метод должен принимать один параметр - расстояние - и пересчитывать координаты в соответствии
+        #  с передвижением из текущей точки (self.x, self.y) по направлению self.angle
+        count = int(input('Какое расстояние едем: '))  # TODO вместо работы с консолью используйте параметр метода,
+                                                       #  а запрос перемещения у пользователя программы делайте в
+                                                       #  основом коде программы
+        if 0 < self.angle < 90:  # TODO угол может быть любым, расчёт надо делать по тригонометрическим формулам без
+                                 #  использования условного оператора
             self.x += count
             self.y += count
         elif 90 < self.angle < 180:
@@ -33,14 +38,14 @@ class Auto:
 
     def turn(self, angle):
         self.angle = angle
-        print()
+        print()  # TODO в коде класса не используйте работу с консолью
 
 
 class Bus(Auto):
     passenger = 0
     money = 0
 
-    def __init__(self, x, y, angle):
+    def __init__(self, x, y, angle):  # TODO переопределяем методы только для изменения их логики, а тут этого нет
         super().__init__(x, y, angle)
 
     def __str__(self):

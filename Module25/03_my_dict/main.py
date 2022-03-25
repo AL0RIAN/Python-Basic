@@ -1,6 +1,11 @@
 class MyDict(dict):
     def get(self, key):
-        for i_key in self.keys():
+        for i_key in self.keys():  # TODO или так просто
+                                   #  if i_key in self:
+                                   #      return self[i_key]
+                                   #  else:
+                                   #      return 0
+
             if key == i_key:
                 return i_key
         else:
