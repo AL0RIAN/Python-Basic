@@ -1,4 +1,10 @@
 class Stack:
+    """
+    Класс, описывающий стек
+
+    Attributes:
+        self.stack (list): стек
+    """
     def __init__(self):
         self.stack = []
 
@@ -6,15 +12,29 @@ class Stack:
         return str(self.stack)
 
     def add(self, elem):
+        """
+        Метод, добавляющий элемент в стек
+        :param elem: элемент
+        """
         self.stack.append(elem)
 
     def pop(self):
+        """
+        Метод, удляющий последний элемент из стека
+        :param elem:
+        """
         if len(self.stack) == 0:
             return None
         return self.stack.pop()
 
 
 class TaskManager:
+    """
+    Класс, описывающий менеджер задач
+
+    Attributes:
+        self.task (dict): задача
+    """
     def __init__(self):
         self.task = dict()
 
@@ -26,6 +46,12 @@ class TaskManager:
         return ' '.join(info)
 
     def new_task(self, task, prior):
+        """
+        Метод добавляющий новую задачу в стек
+
+        :param task: задача
+        :param prior: приоритет задачи
+        """
         if prior not in self.task:
             self.task[prior] = Stack()
         self.task[prior].add(task)
