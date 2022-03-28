@@ -1,4 +1,11 @@
 class Property:
+    """
+    Базовый класс, описывающий имущество
+
+    Args:
+        worth(int): передаётся стоимость имущества
+    """
+
     def __init__(self, worth):
         self.worth = worth
 
@@ -6,10 +13,20 @@ class Property:
         return f'Налог: {self.tax()}'
 
     def tax(self):
+        """
+        Метод для расчета налога. Пуст; нужен для наследования.
+        """
         pass
 
 
 class Apartment(Property):
+    """
+    Класс, описывающий квартиру. Родитель: Property
+
+    Args:
+        worth(int): передаётся стоимость квартиры
+    """
+
     def __init__(self, worth):
         super().__init__(worth)
 
@@ -18,10 +35,23 @@ class Apartment(Property):
         return f'\nКвартира. {info}'
 
     def tax(self):
+        """
+        Метод для расчёта налога
+
+        :return: self.worth * 0.001
+        :rtype: float
+        """
         return self.worth * 0.001
 
 
 class Car(Property):
+    """
+    Класс, описывающий машину. Родитель: Property
+
+    Args:
+        worth(int): передаётся стоимость машины
+    """
+
     def __init__(self, worth):
         super().__init__(worth)
 
@@ -30,10 +60,23 @@ class Car(Property):
         return f'\nМашина. {info}'
 
     def tax(self):
+        """
+        Метод для расчёта налога
+
+        :return: 0.005 * self.worth
+        :rtype: float
+        """
         return 0.005 * self.worth
 
 
 class CountryHouse(Property):
+    """
+    Класс, описывающий загородный дом. Родитель: Property
+
+     Args:
+        worth(int): передаётся стоимость дома
+    """
+
     def __init__(self, worth):
         super().__init__(worth)
 
@@ -42,6 +85,12 @@ class CountryHouse(Property):
         return f'\nДом. {info}'
 
     def tax(self):
+        """
+        Метод для расчёта налога
+
+        :return: 0.002 * self.worth
+        :rtype: float
+        """
         return 0.002 * self.worth
 
 
