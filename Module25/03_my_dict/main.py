@@ -1,8 +1,18 @@
 class MyDict(dict):
+    """
+    Дочерний класс dict
+    """
+
     def get(self, key):
-        for i_key in self.keys():
-            if key == i_key:
-                return i_key
+        """
+        Ф-я поиска ключа в словаре
+
+        :param key: ключ, который нужно найти в self
+        :type: любой неизменяемый тип
+        :return: self[key], если ключ находится в словаре, иначе 0
+        """
+        if key in self:
+            return self[key]
         else:
             return 0
 
