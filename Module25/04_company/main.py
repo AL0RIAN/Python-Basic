@@ -7,7 +7,8 @@ class Person:
         __surname (str): фамилия
         __age (int): возраст
     """
-    def __init__(self, __name, __surname, __age):
+    def __init__(self, __name, __surname, __age):  # TODO прошлый раз не обратил ваше внимание - параметры не могут быть
+                                   # "приватными" или "общедоступными", поэтому не стоит делать префикс из подчёркиваний
         self.__name = __name
         self.__surname = __surname
         self.__age = __age
