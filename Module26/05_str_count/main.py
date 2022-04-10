@@ -21,6 +21,7 @@ def my_gen(direct: str) -> list:
     """
     count = 0
     for obj in os.listdir(direct):
+        # TODO если obj это папка, то нужно вызвать рекурсивно генератор my_gen: yield from my_gen(...)
         if obj.endswith('.py'):
             obj_1 = os.path.join(direct, obj)
             with open(obj_1, 'r', encoding='utf-8') as file:
