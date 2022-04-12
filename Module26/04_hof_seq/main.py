@@ -1,7 +1,7 @@
 class QHofstadter:
     def __init__(self, lst: list) -> None:
-        # TODO тут надо проверить lst на валидность (равенство списку [1, 1]) и если он не валидный, то выбросить
-        #  исключение
+        if lst != [1, 1]:
+            raise KeyError
         self.lst = lst
 
     def __iter__(self) -> any:
@@ -9,11 +9,9 @@ class QHofstadter:
 
     def __next__(self) -> int:
         try:
-            q1 = self.lst[-1]
-            q2 = self.lst[-2]
-            # TODO на самом деле формула немного сложнее: Q(n) = Q(n − Q(n − 1)) + Q(n − Q(n − 2))
-            self.lst.append(q1 + q2)
-            return q1 + q2
+            res = self.lst[-self.lst[-1]] + self.lst[-self.lst[-2]]
+            self.lst.append(res)
+            return res
         except IndexError:
             raise StopIteration()
 
