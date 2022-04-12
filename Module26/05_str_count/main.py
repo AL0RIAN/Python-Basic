@@ -29,8 +29,8 @@ def my_gen(direct: str) -> list:
                 for line in file.readlines():
                     if not line.isspace() and not comment_check(line):
                         count += 1
-                        yield count
-                        print(line, end='')
+            yield count  # TODO считаем все строки кода в файле и возвращаем только их
+            # print(line, end='')
 
 
 if __name__ == '__main__':
