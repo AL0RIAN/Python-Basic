@@ -7,10 +7,10 @@ names: List[str] = ["Vanes", "Alen", "Jana", "William", "Richards", "Joy"]
 numbers: List[int] = [22, 33, 10, 6894, 11, 2, 1]
 
 
-r1: List[float] = list(map(lambda x: round(x ** 3, 3), floats))
-r2: List[str] = list(filter(lambda x: len(x) >= 5, names))
-r3: List[int] = reduce(lambda x, y: x + y, map(lambda x: x, numbers))
+result1: List[float] = list(map(lambda x: round(x ** 3, 3), floats))
+result2: List[str] = list(filter(lambda x: len(x) >= 5, names))
+result3: List[int] = reduce(lambda x, y: x + y, map(lambda x: x, numbers))
 
-print(r1)
-print(r2)
-print(r3)
+print(result1)
+print(result2)
+print(result3)
